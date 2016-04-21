@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git://github.com/NZME/json-meta-table"
   },
+  "scripts": {
+    "test": "echo 'ok'"   
+  },
   "keywords": [
     "js",
     "es6",

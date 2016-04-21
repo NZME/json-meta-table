@@ -1,3 +1,8 @@
-language: javascript
+language: node_js
 node_js:
-  - "4.2"
+- '4.2'
+deploy:
+  email: benauf@gmail.com
+  provider: npm
+  api_key:
+    secure: mmvjE7uAb6cCC0A1J00V+x/ACsJaPUEka7QCeg+yyNc3KBsIt5ecrDdTiXi3uVIgAdp51ywj4foz78pOxkWzDaWCJcFf1Q6sHk7rH4ZTYzXc5A/La34hwJFNtetRkgNODB7HX1y8J9+Mv421dkC1S31Sd19qjSFR5y0eK2nwDbnchH9sASzVrjfxaz7UyPf4nguGubNnUZ/b1rrlcHtXAvI3OD5hGbxJzcU6mPHdpERjiQCauGo7xRe5wB0ou1XWmRfXt+pdgwl0xX4lVaHzxD5qvbCrwxC86Oyh4T9slMXIkbcAaa5UMV7q3O+hLTdPDKyxGyxXIzPUPsRkF0dTrEkVvxFyI1i6qjETtTnPievXTjqtdL+4LxDQetjcmLi80pkMfNqm0YGl7h1/k500qdfV0VWscKnNy/oHGi8f+UKSqjdWR1k7oDuHnc3kg1ow4lbR/V6xAn/FcfGmhRh39n1v6GDUTya6Q5IcIHjRRznIyejVn+diEbqQYTs5dQTeihnOsaJSmF7hkP1ZVj7gSXoBYAxGckvG2k7B67ODfqbT89wbYomgwCIw3/K4AaWbUUJEpn9bhN41y4uk+BGI1BnvGRoYTHGrVt2afDMERfIB2848ylLH/7s/5Tyvn6UOdxs02ZxbiHpWBEDliN5o78exSR7Rr+NeHaSDLft4ggs=
