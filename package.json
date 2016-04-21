@@ -8,7 +8,9 @@
     "url": "git://github.com/NZME/json-meta-table"
   },
   "scripts": {
-    "test": "echo 'ok'"   
+    "compile": "babel --presets es2015,stage-0 -d dist/ src/",
+    "prepublish": "npm run compile",
+    "test": "echo 'ok'"
   },
   "keywords": [
     "js",
@@ -25,9 +27,13 @@
     "url": "https://github.com/NZME/json-meta-table/issues"
   },
   "dependencies": {
+    "event-abstract-class": "^1.0.0",
     "moment": "^2.13.0"
   },
   "devDependencies": {
-    "event-abstract-class": "^1.0.0"
+    "babel-cli": "^6.1.18",
+    "babel-core": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18"
   }
 }
