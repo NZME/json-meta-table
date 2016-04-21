@@ -1,0 +1,30 @@
+{
+  "name": "json-meta-table",
+  "version": "1.0.0",
+  "description": "A JSON-driven editable table component.",
+  "main": "src/json-meta-table.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NZME/json-meta-table"
+  },
+  "keywords": [
+    "js",
+    "es6",
+    "table",
+    "html",
+    "json",
+    "class"
+  ],
+  "contributors": [
+    "Raice Hannay <raicehannay@gmail.com> (http://github.com/voodoocreation)"
+  ],
+  "bugs": {
+    "url": "https://github.com/NZME/json-meta-table/issues"
+  },
+  "dependencies": {
+    "moment": "^2.13.0"
+  },
+  "devDependencies": {
+    "event-abstract-class": "^1.0.0"
+  }
+}
