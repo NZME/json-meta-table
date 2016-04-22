@@ -1,6 +1,6 @@
 {
   "name": "json-meta-table",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A JSON-driven editable table component.",
   "main": "dist/json-meta-table.js",
   "repository": {
@@ -27,7 +27,7 @@
     "url": "https://github.com/NZME/json-meta-table/issues"
   },
   "dependencies": {
-    "event-abstract-class": "^1.0.5",
+    "event-abstract-class": "^1.0.6",
     "moment": "^2.13.0"
   },
   "devDependencies": {
