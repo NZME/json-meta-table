@@ -59,7 +59,9 @@ const
         options:    null,
         editable:   true,
         sortable:   true,
-        filterable: true
+        filterable: true,
+        renderer:   undefined,
+        filter:     undefined
     },
 
     FILTERS = {
@@ -94,8 +96,8 @@ export default class JSONMetaTable extends EventAbstractClass {
      * @param {Object}             options       Table options
      * @param {Object}             filterOptions Filter options
      * @param {Array}              actions       Table row actions
-     * @param {Object}             filters       Custom filters
-     * @param {Object}             renderers     Custom renderers
+     * @param {Object}             filterTypes   Custom filters
+     * @param {Object}             rendererTypes Custom renderers
      * @param {Object}             actionTypes   Custom action types
      */
     constructor (
@@ -103,8 +105,8 @@ export default class JSONMetaTable extends EventAbstractClass {
         options       = {},
         filterOptions = {},
         actions       = [],
-        filters       = {},
-        renderers     = {},
+        filterTypes   = {},
+        rendererTypes = {},
         actionTypes   = {}
     ) {
         super()
@@ -122,8 +124,8 @@ export default class JSONMetaTable extends EventAbstractClass {
         this.options       = Object.assign({}, OPTIONS, options)
         this.filterOptions = filterOptions
         this.actions       = actions
-        this.filters       = Object.assign({}, FILTERS, filters)
-        this.renderers     = Object.assign({}, RENDERERS, renderers)
+        this.filters       = Object.assign({}, FILTERS, filterTypes)
+        this.renderers     = Object.assign({}, RENDERERS, rendererTypes)
         this.actionTypes   = Object.assign({}, ACTIONS, actionTypes)
 
         this.container = (typeof container === 'string')
@@ -370,7 +372,6 @@ export default class JSONMetaTable extends EventAbstractClass {
      */
     setMetadata (metadata) {
         this.trigger('setMetadata:pre', {
-            metadata:    this.metadata,
             newMetadata: metadata
         })
 
@@ -400,9 +401,7 @@ export default class JSONMetaTable extends EventAbstractClass {
             this.render()
         }
 
-        this.trigger('setMetadata:post', {
-            metadata: this.metadata
-        })
+        this.trigger('setMetadata:post')
     }
 
     /**
@@ -414,7 +413,6 @@ export default class JSONMetaTable extends EventAbstractClass {
      */
     setData (data) {
         this.trigger('setData:pre', {
-            data:    this.data,
             newData: data
         })
 
@@ -427,9 +425,7 @@ export default class JSONMetaTable extends EventAbstractClass {
             this.renderBody()
         }
 
-        this.trigger('setData:post', {
-            data: this.data
-        })
+        this.trigger('setData:post')
     }
 
     /**
@@ -491,6 +487,8 @@ export default class JSONMetaTable extends EventAbstractClass {
      * Filter data by column filter values
      *
      * @param {Object} values Associative object of column => value pairs
+     * @fires JSONMetaTable#filterByColumns:pre
+     * @fires JSONMetaTable#filterByColumns:post
      */
     filterByColumns (values) {
         let columns = Object.keys(values)
@@ -500,6 +498,10 @@ export default class JSONMetaTable extends EventAbstractClass {
                 delete values[column]
             }
         }
+
+        this.trigger('filterByColumns:pre', {
+            values: values
+        })
 
         columns = Object.keys(values)
 
@@ -535,6 +537,10 @@ export default class JSONMetaTable extends EventAbstractClass {
         } else {
             this.renderBody()
         }
+
+        this.trigger('filterByColumns:post', {
+            values: values
+        })
     }
 
     /**
@@ -542,6 +548,8 @@ export default class JSONMetaTable extends EventAbstractClass {
      *
      * @param column
      * @param search
+     * @fires JSONMetaTable#filterBy:pre
+     * @fires JSONMetaTable#filterBy:post
      */
     filterBy (column, search) {
         this.trigger('filterBy:pre', {
@@ -565,6 +573,8 @@ export default class JSONMetaTable extends EventAbstractClass {
      * Filter data by general row search terms
      *
      * @param search
+     * @fires JSONMetaTable#filter:pre
+     * @fires JSONMetaTable#filter:post
      */
     filter (search) {
         this.trigger('filter:pre', {
@@ -620,21 +630,27 @@ export default class JSONMetaTable extends EventAbstractClass {
     /**
      * Delete row
      *
-     * @param row
+     * @param {*} row Row object or row id
+     * @fires JSONMetaTable#deleteRow:pre
+     * @fires JSONMetaTable#deleteRow:post
      */
     deleteRow (row) {
+        let id = (row.id)
+            ? row.id
+            : row
+
         this.trigger('deleteRow:pre', {
-            row: row
+            id: id
         })
 
         let data = this.completeData.filter((item) => {
-            return (item.id !== row.id)
+            return (item.id !== id)
         })
 
         this.setData(data)
 
         this.trigger('deleteRow:post', {
-            row: row
+            id: id
         })
     }
 

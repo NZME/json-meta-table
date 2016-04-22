@@ -8,7 +8,7 @@
     "url": "git://github.com/NZME/json-meta-table"
   },
   "scripts": {
-    "compile": "babel --presets es2015,stage-0 -d dist/ src/",
+    "compile": "node node_modules/babel-cli/bin/babel.js --presets es2015,stage-0 -d dist/ src/",
     "prepublish": "npm run compile",
     "test": "echo 'ok'"
   },
@@ -27,7 +27,7 @@
     "url": "https://github.com/NZME/json-meta-table/issues"
   },
   "dependencies": {
-    "event-abstract-class": "^1.0.0",
+    "event-abstract-class": "^1.0.3",
     "moment": "^2.13.0"
   },
   "devDependencies": {
