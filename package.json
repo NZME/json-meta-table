@@ -1,6 +1,6 @@
 {
   "name": "json-meta-table",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A JSON-driven editable table component.",
   "main": "dist/json-meta-table.js",
   "repository": {

@@ -557,9 +557,7 @@ export default class JSONMetaTable extends EventAbstractClass {
             search: search
         })
 
-        if (search) {
-            this.filtering[column] = search
-        }
+        this.filtering[column] = search
 
         this.filterByColumns(this.filtering)
 
