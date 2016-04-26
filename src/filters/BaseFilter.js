@@ -156,7 +156,8 @@ export default class BaseFilter extends EventAbstractClass {
      * @param {*} value New value to set
      */
     performSetValue (value) {
-        this.value = value
+        this.value       = value
+        this.input.value = value
 
         this.container.classList.toggle(this.options.inputHasValueClass, (this.value !== ''))
     }
@@ -201,11 +202,15 @@ export default class BaseFilter extends EventAbstractClass {
      * @fires BaseFilter#toggleInput:post
      */
     toggleInput (isVisible) {
-        this.trigger('toggleInput:pre')
+        this.trigger('toggleInput:pre', {
+            isVisible: isVisible
+        })
 
         this.performToggleInput(isVisible)
 
-        this.trigger('toggleInput:post')
+        this.trigger('toggleInput:post', {
+            isVisible: isVisible
+        })
     }
 
     /**
@@ -222,7 +227,9 @@ export default class BaseFilter extends EventAbstractClass {
 
         this.performSetValue(value)
 
-        this.trigger('setValue:post')
+        this.trigger('setValue:post', {
+            value: value
+        })
     }
 
     // endregion Controls
