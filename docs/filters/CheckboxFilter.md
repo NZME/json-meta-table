@@ -1,6 +1,6 @@
 CheckboxFilter
 ==============
-Filter type for `checkbox` type data values. Renders an `<select>` element with options for `true` and `false` values.
+Filter type class for `checkbox` type data values. Renders an `<select>` element with options for `true` and `false` values.
 
 See [BaseFilter](BaseFilter.md) for more details.
 

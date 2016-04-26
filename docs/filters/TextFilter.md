@@ -1,6 +1,6 @@
 TextFilter
 ==========
-Filter type for `text` type data values. Renders an `<input type="text">` element.
+Filter type class for `text` type data values. Renders an `<input type="text">` element.
 
 See [BaseFilter](BaseFilter.md) for more details.
 

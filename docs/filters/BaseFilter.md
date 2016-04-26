@@ -4,7 +4,7 @@ Abstract class for filter type classes to extend.
 
 Notes
 -----
-  - It is recommended to override the methods in the 'actions' code region, rather than the ones
+  - It is recommended to override the methods in the 'actions' code region, rather than those
     in the 'controls' region, to avoid having to manually trigger the class events.
 
 Parameters
@@ -27,13 +27,22 @@ Options for instance of filter. Merged with defaults:
     typingUpdateDelay:   500
 }
 ```
+  - `containerClass`: Class added to filter container element
+  - `buttonClass`: Class added to `<button>` element
+  - `inputContainerClass`: Class added to the `<input>` container element
+  - `inputHasValueClass`: Class added to the container element when the filter has a value set
+  - `emptyOptionText`: Text for empty option text for filters using the `<select>` element
+  - `trueOptionText`: Text for `CheckboxFilter` filter type `true` option
+  - `falseOptionText`: Text for `CheckboxFilter` filter type `false` option
+  - `placeholderText`: Text to use for `<input>` `placeholder` attribute
+  - `typingUpdateDelay`: Time in milliseconds to delay updating the filter value when typing
 
 Controls
 --------
 Public control methods to be accessed on an instance are as follows:
 
 ### init
-Initialise filter instance.
+Initialise filter instance - executes `render` and `bind` methods.
 
 ### render
 Render filter instance - used to apply classes and structure HTML.
