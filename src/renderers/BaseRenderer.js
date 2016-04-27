@@ -229,19 +229,19 @@ export default class BaseRenderer extends EventAbstractClass {
     /**
      * Toggle editor/display
      *
-     * @param {boolean} isEditing If true, editor will be toggled, otherwise display will be toggled
+     * @param {boolean} isVisible If true, editor will be toggled, otherwise display will be toggled
      * @fires BaseRenderer#toggleEditor:pre
      * @fires BaseRenderer#toggleEditor:post
      */
-    toggleEditor (isEditing) {
+    toggleEditor (isVisible) {
         this.trigger('toggleEditor:pre', {
-            isEditing: isEditing
+            isVisible: isVisible
         })
 
-        this.performToggleEditor(isEditing)
+        this.performToggleEditor(isVisible)
 
         this.trigger('toggleEditor:post', {
-            isEditing: isEditing
+            isVisible: isVisible
         })
     }
 
@@ -259,7 +259,9 @@ export default class BaseRenderer extends EventAbstractClass {
 
         this.performSetValue(value)
 
-        this.trigger('setValue:post')
+        this.trigger('setValue:post', {
+            value: this.value
+        })
     }
 
     /**

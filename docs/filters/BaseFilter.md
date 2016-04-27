@@ -90,18 +90,18 @@ Triggered after input/button visibility is toggled.
 
 ### setValue:pre
 Triggered before new filter value is set.
-### Receives
+#### Receives
 ```javascript
 {
-    value: value // New value to be set
+    newValue: value // New value to be set
 }
 ```
 
 ### setValue:post
 Triggered after new filter value is set.
-### Receives
+#### Receives
 ```javascript
 {
-    value: value // New value that was set
+    value: value // Value that was set
 }
 ```
