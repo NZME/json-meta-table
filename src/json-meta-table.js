@@ -262,8 +262,6 @@ export default class JSONMetaTable extends EventAbstractClass {
             if (meta.filterable && this.options.columnFiltering) {
                 meta.th.classList.add(this.options.filterableClass)
 
-                meta.filter.on('setValue:post', this.handleFilterPostSetValue.bind(this, meta))
-
                 meta.th.appendChild(meta.filter.container)
             }
 
@@ -394,6 +392,12 @@ export default class JSONMetaTable extends EventAbstractClass {
                 this.metadata[index].filter = (this.filters[this.metadata[index].type])
                     ? new this.filters[this.metadata[index].type](meta, this.filterOptions)
                     : new this.filters.text(meta, this.filterOptions)
+
+                if (this.filtering[meta.name]) {
+                    this.metadata[index].filter.setValue(this.filtering[meta.name])
+                }
+
+                this.metadata[index].filter.on('setValue:post', this.handleFilterPostSetValue.bind(this, this.metadata[index]))
             }
         })
 
