@@ -9,8 +9,8 @@ export default class CheckboxRenderer extends BaseRenderer {
     /**
      * @inheritdoc
      */
-    constructor (table, meta, value) {
-        super(table, meta, value)
+    constructor (table, meta, value, displayValue) {
+        super(table, meta, value, displayValue)
 
         this.init()
 
@@ -81,11 +81,16 @@ export default class CheckboxRenderer extends BaseRenderer {
     /**
      * @inheritdoc
      */
-    performSetValue (value) {
+    performSetValue (value, displayValue = null) {
+        displayValue = (displayValue)
+            ? displayValue
+            : value
+
         this.value             = this.parseValue(value)
+        this.displayValue      = this.formatValue(displayValue)
         this.input.value       = new String(value)
         this.input.checked     = this.value
-        this.display.innerHTML = this.formatValue(value)
+        this.display.innerHTML = this.displayValue
 
         if (this.value !== this.initialValue) {
             this.hasChanged = true

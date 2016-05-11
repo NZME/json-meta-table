@@ -9,18 +9,21 @@ export default class BaseRenderer extends EventAbstractClass {
     /**
      * Constructor
      *
-     * @param {JSONMetaTable} table
-     * @param {Object}        meta
-     * @param {*}             value
+     * @param {JSONMetaTable} table        Table instance
+     * @param {Object}        meta         Column metadata
+     * @param {*}             value        Value to set on editor
+     * @param {*}             displayValue Value to display
      */
-    constructor (table, meta, value) {
+    constructor (table, meta, value, displayValue) {
         super()
 
-        this.table         = table
-        this.meta          = meta
-        this.value         = null
-        this.initialValue  = this.parseValue(value)
-        this.hasChanged    = false
+        this.table               = table
+        this.meta                = meta
+        this.value               = null
+        this.displayValue        = null
+        this.initialValue        = this.parseValue(value)
+        this.initialDisplayValue = this.formatValue(displayValue)
+        this.hasChanged          = false
 
         this.container = document.createElement('div')
         this.editor    = document.createElement('div')
@@ -103,7 +106,7 @@ export default class BaseRenderer extends EventAbstractClass {
         if (this.input.checkValidity()) {
             this.setValue(this.input.value)
         } else {
-            this.setValue(this.initialValue)
+            this.setValue(this.initialValue, this.initialDisplayValue)
         }
 
         this.blur()
@@ -118,7 +121,7 @@ export default class BaseRenderer extends EventAbstractClass {
      */
     performInit () {
         this.render()
-        this.setValue(this.initialValue)
+        this.setValue(this.initialValue, this.initialDisplayValue)
         this.bindDisplay()
     }
 
@@ -152,12 +155,18 @@ export default class BaseRenderer extends EventAbstractClass {
     /**
      * Perform setValue action
      *
-     * @param {*} value New value to set
+     * @param {*} value        New value to set
+     * @param {*} displayValue New display value to set
      */
-    performSetValue (value) {
+    performSetValue (value, displayValue = null) {
+        displayValue = (displayValue)
+            ? displayValue
+            : value
+
         this.value             = this.parseValue(value)
+        this.displayValue      = this.formatValue(displayValue)
         this.input.value       = new String(this.value)
-        this.display.innerHTML = this.formatValue(this.value)
+        this.display.innerHTML = this.displayValue
 
         if (this.value !== this.initialValue) {
             this.hasChanged = true
@@ -190,8 +199,9 @@ export default class BaseRenderer extends EventAbstractClass {
         this.toggleEditor(false)
         this.unbindInputBlur()
 
-        this.initialValue = this.value
-        this.hasChanged   = false
+        this.initialValue        = this.value
+        this.initialDisplayValue = this.displayValue
+        this.hasChanged          = false
     }
 
     // endregion Actions
@@ -248,19 +258,22 @@ export default class BaseRenderer extends EventAbstractClass {
     /**
      * Set new value
      *
-     * @param {*} value New value to set
+     * @param {*} value        New value to set
+     * @param {*} displayValue New display value to set
      * @fires BaseRenderer#setValue:pre
      * @fires BaseRenderer#setValue:post
      */
-    setValue (value) {
+    setValue (value, displayValue = null) {
         this.trigger('setValue:pre', {
-            newValue: this.parseValue(value)
+            newValue:        this.parseValue(value),
+            newDisplayValue: displayValue
         })
 
-        this.performSetValue(value)
+        this.performSetValue(value, displayValue)
 
         this.trigger('setValue:post', {
-            value: this.value
+            value:        this.value,
+            displayValue: this.displayValue
         })
     }
 

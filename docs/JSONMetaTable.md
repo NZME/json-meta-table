@@ -38,6 +38,7 @@ Data is provided to JSONMetaTable instances as an array of associative objects
   - `id`: Unique identifier for row
   - `trClassName`: Class to add to row `<tr>` element
   - `values`: Associative object of row values - values are only rendered if included in the table's metadata, in the order defined by the metadata
+  - `displayValues`: Associative object of row values specific to renderer display only
 
 Parameters
 ----------

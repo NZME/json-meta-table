@@ -17,7 +17,10 @@ Instance of `JSONMetaTable` class - can be used to call public controls on the t
 Metadata for column this renderer is attached to - pulled from objects in `JSONMetaTable.metadata`.
 
 ### `value`
-Value for renderer's display to format and editor to parse.
+Value for renderer's editor to parse.
+
+### `displayValue`
+Value for renderer's display to format. `value` is used if `displayValue` isn't provided.
 
 Controls
 --------

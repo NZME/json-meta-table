@@ -296,8 +296,12 @@ export default class JSONMetaTable extends EventAbstractClass {
             }
 
             this.metadata.map((meta) => {
+                let displayValue = (row.displayValues && row.displayValues[meta.name])
+                    ? row.displayValues[meta.name]
+                    : undefined
+
                 row.cells[meta.name]     = document.createElement('td')
-                row.renderers[meta.name] = new meta.renderer(this, meta, row.values[meta.name])
+                row.renderers[meta.name] = new meta.renderer(this, meta, row.values[meta.name], displayValue)
 
                 row.renderers[meta.name].on('setValue:post', this.handleRendererPostSetValue.bind(this, row, meta, row.renderers[meta.name]))
 

@@ -9,8 +9,8 @@ export default class TextRenderer extends BaseRenderer {
     /**
      * @inheritdoc
      */
-    constructor (table, meta, value) {
-        super(table, meta, value)
+    constructor (table, meta, value, displayValue) {
+        super(table, meta, value, displayValue)
 
         this.init()
     }
