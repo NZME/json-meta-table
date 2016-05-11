@@ -25,6 +25,10 @@ export default class SelectRenderer extends BaseRenderer {
      * @inheritdoc
      */
     formatValue (value) {
+        if (!this.meta.options.find) {
+            return value
+        }
+
         return this.meta.options.find((option) => {
             return (option.value == value)
         }).label
