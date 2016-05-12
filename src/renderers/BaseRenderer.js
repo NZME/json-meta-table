@@ -25,8 +25,8 @@ export default class BaseRenderer extends EventAbstractClass {
         this.meta                = meta
         this.value               = null
         this.displayValue        = null
-        this.initialValue        = this.parseValue(value)
-        this.initialDisplayValue = this.formatValue(displayValue)
+        this.initialValue        = value
+        this.initialDisplayValue = displayValue
         this.hasChanged          = false
 
         this.container = document.createElement('div')
