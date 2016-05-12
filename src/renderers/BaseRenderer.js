@@ -190,7 +190,7 @@ export default class BaseRenderer extends EventAbstractClass {
         this.input.focus()
 
         if (this.input.setSelectionRange) {
-            this.input.setSelectionRange(0, this.value.length)
+            this.input.setSelectionRange(0, this.input.value.length)
         }
 
         this.bindInputBlur()
