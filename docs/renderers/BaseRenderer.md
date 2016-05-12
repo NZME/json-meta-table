@@ -86,7 +86,8 @@ Triggered before new renderer value is set.
 #### Receives
 ```javascript
 {
-    value: value // New value to be set
+    value:        value, // New value to be set
+    displayValue: displayValue // New display value to be set
 }
 ```
 
@@ -95,7 +96,8 @@ Triggered after new renderer value is set.
 #### Receives
 ```javascript
 {
-    value: value // Value that was set
+    value:        value, // Value that was set
+    displayValue: displayValue // Display value that was set
 }
 ```
 

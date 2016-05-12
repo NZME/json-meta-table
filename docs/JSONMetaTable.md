@@ -155,9 +155,10 @@ Triggered before a row is updated when editing using the table's inline editing 
 #### Receives
 ```javascript
 {
-    row:      row,     // Row being edited
-    meta:     meta,    // Row column metadata
-    newValue: newValue // New value to update to
+    row:             row,     // Row being edited
+    meta:            meta,    // Row column metadata
+    newValue:        newValue // New value to update to
+    newDisplayValue: newDisplayValue // New display value to update to
 }
 ```
 

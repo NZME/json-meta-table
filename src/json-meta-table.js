@@ -202,12 +202,18 @@ export default class JSONMetaTable extends EventAbstractClass {
     handleRendererPostSetValue (row, meta, renderer) {
         if (renderer.hasChanged) {
             this.trigger('updateRow:pre', {
-                row:      row,
-                meta:     meta,
-                newValue: renderer.value
+                row:             row,
+                meta:            meta,
+                newValue:        renderer.value,
+                newDisplayValue: renderer.displayValue
             })
 
-            row.values[renderer.meta.name] = renderer.value
+            if (!row.displayValues) {
+                row.displayValues = {}
+            }
+
+            row.values[renderer.meta.name]        = renderer.value
+            row.displayValues[renderer.meta.name] = renderer.displayValue
 
             this.trigger('updateRow:post', {
                 row:  row,
