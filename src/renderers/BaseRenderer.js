@@ -17,6 +17,10 @@ export default class BaseRenderer extends EventAbstractClass {
     constructor (table, meta, value, displayValue) {
         super()
 
+        displayValue = (displayValue !== undefined)
+            ? displayValue
+            : value
+
         this.table               = table
         this.meta                = meta
         this.value               = null
