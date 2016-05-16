@@ -35,3 +35,8 @@ Examples
   - [Remote data](docs/examples/remote-data.md)
   - [Actions](docs/examples/actions.md)
   - [Custom data types](docs/examples/custom-data-types.md)
+  
+  
+Release Notes
+--------
+  - 1.3 Upgrade Babel to 1.8 and create public bundle
