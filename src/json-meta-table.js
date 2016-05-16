@@ -52,16 +52,17 @@ const
     },
 
     METADATA = {
-        name:       '',
-        label:      '',
-        type:       'text',
-        info:       null,
-        options:    null,
-        editable:   true,
-        sortable:   true,
-        filterable: true,
-        renderer:   undefined,
-        filter:     undefined
+        name:            '',
+        label:           '',
+        type:            'text',
+        info:            null,
+        options:         null,
+        editable:        true,
+        sortable:        true,
+        filterable:      true,
+        renderer:        undefined,
+        filter:          undefined,
+        rendererOptions: {}
     },
 
     FILTERS = {

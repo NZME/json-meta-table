@@ -1,5 +1,9 @@
 import EventAbstractClass from 'event-abstract-class'
 
+const OPTIONS = {
+
+}
+
 /**
  * Base renderer abstract class
  */
@@ -21,6 +25,7 @@ export default class BaseRenderer extends EventAbstractClass {
             ? displayValue
             : value
 
+        this.options             = Object.assign({}, OPTIONS, meta.rendererOptions)
         this.table               = table
         this.meta                = meta
         this.value               = null

@@ -1023,7 +1023,8 @@ var OPTIONS = {
     sortable: true,
     filterable: true,
     renderer: undefined,
-    filter: undefined
+    filter: undefined,
+    rendererOptions: {}
 },
     FILTERS = {
     text: _TextFilter2.default,
@@ -1784,6 +1785,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var OPTIONS = {};
+
 /**
  * Base renderer abstract class
  */
@@ -1809,6 +1812,7 @@ var BaseRenderer = function (_EventAbstractClass) {
 
         displayValue = displayValue !== undefined ? displayValue : value;
 
+        _this.options = Object.assign({}, OPTIONS, meta.rendererOptions);
         _this.table = table;
         _this.meta = meta;
         _this.value = null;
@@ -2016,7 +2020,7 @@ var BaseRenderer = function (_EventAbstractClass) {
             this.input.focus();
 
             if (this.input.setSelectionRange) {
-                this.input.setSelectionRange(0, this.value.length);
+                this.input.setSelectionRange(0, this.input.value.length);
             }
 
             this.bindInputBlur();

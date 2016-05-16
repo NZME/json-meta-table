@@ -8,16 +8,17 @@ Metadata is provided to JSONMetaTable instances as an array of associative objec
 each object gets merged with the core module defaults:
 ```javascript
 {
-    name:       '',
-    label:      '',
-    type:       'text',
-    info:       null,
-    options:    null,
-    editable:   true,
-    sortable:   true,
-    filterable: true,
-    renderer:   undefined,
-    filter:     undefined
+    name:            '',
+    label:           '',
+    type:            'text',
+    info:            null,
+    options:         null,
+    editable:        true,
+    sortable:        true,
+    filterable:      true,
+    renderer:        undefined,
+    filter:          undefined,
+    rendererOptions: {}
 }
 ```
   - `name`: Column name (unique identifier)
@@ -30,7 +31,7 @@ each object gets merged with the core module defaults:
   - `filterable`: Column is filterable - if false, this column is skipped in all filter searches and will have no filter in its `<th>` element
   - `renderer`: Specific renderer to use for this column - overrides type-based renderer selection - must extend `BaseRenderer` abstract class
   - `filter`: Specific filter to use for this column - overrides type-based filter selection - must extend `BaseFilter` abstract class
-
+  - `rendererOptions`: Options for renderer instance to use
 
 Data format
 -----------
