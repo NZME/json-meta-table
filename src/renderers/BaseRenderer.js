@@ -142,6 +142,10 @@ export default class BaseRenderer extends EventAbstractClass {
         this.editor.classList.add('json-meta-table-editor')
         this.display.classList.add('json-meta-table-display')
 
+        if (this.meta.required) {
+            this.input.required = true
+        }
+
         this.editor.appendChild(this.input)
         this.container.appendChild(this.display)
     }

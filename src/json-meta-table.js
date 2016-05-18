@@ -60,6 +60,7 @@ const
         editable:        true,
         sortable:        true,
         filterable:      true,
+        required:        false,
         renderer:        undefined,
         filter:          undefined,
         rendererOptions: {}

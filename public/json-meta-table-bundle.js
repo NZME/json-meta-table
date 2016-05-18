@@ -1022,6 +1022,7 @@ var OPTIONS = {
     editable: true,
     sortable: true,
     filterable: true,
+    required: false,
     renderer: undefined,
     filter: undefined,
     rendererOptions: {}
@@ -1957,6 +1958,10 @@ var BaseRenderer = function (_EventAbstractClass) {
             this.container.classList.add('json-meta-table-renderer');
             this.editor.classList.add('json-meta-table-editor');
             this.display.classList.add('json-meta-table-display');
+
+            if (this.meta.required) {
+                this.input.required = true;
+            }
 
             this.editor.appendChild(this.input);
             this.container.appendChild(this.display);
