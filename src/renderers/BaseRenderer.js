@@ -15,10 +15,11 @@ export default class BaseRenderer extends EventAbstractClass {
      *
      * @param {JSONMetaTable} table        Table instance
      * @param {Object}        meta         Column metadata
+     * @param {Object}        row          Row object
      * @param {*}             value        Value to set on editor
      * @param {*}             displayValue Value to display
      */
-    constructor (table, meta, value, displayValue) {
+    constructor (table, meta, row, value, displayValue) {
         super()
 
         displayValue = (displayValue !== undefined)

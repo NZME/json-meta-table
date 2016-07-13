@@ -312,7 +312,7 @@ export default class JSONMetaTable extends EventAbstractClass {
                     : undefined
 
                 row.cells[meta.name]     = document.createElement('td')
-                row.renderers[meta.name] = new meta.renderer(this, meta, row.values[meta.name], displayValue)
+                row.renderers[meta.name] = new meta.renderer(this, meta, row, row.values[meta.name], displayValue)
 
                 row.renderers[meta.name].on('setValue:post', this.handleRendererPostSetValue.bind(this, row, meta, row.renderers[meta.name]))
 

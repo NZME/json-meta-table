@@ -20,10 +20,10 @@ export default class AutocompleteRenderer extends BaseRenderer {
     /**
      * @inheritdoc
      */
-    constructor (table, meta, value, displayValue, options = {}) {
-        super(table, meta, value, displayValue)
+    constructor (table, meta, row, value, displayValue) {
+        super(table, meta, row, value, displayValue)
 
-        this.options     = Object.assign({}, OPTIONS, this.options, options)
+        this.options     = Object.assign({}, OPTIONS, this.options, meta.rendererOptions)
         this.results     = []
         this.resultsList = document.createElement('ul')
 

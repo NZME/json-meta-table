@@ -9,8 +9,8 @@ export default class NumberRenderer extends BaseRenderer {
     /**
      * @inheritdoc
      */
-    constructor (table, meta, value, displayValue) {
-        super(table, meta, value, displayValue)
+    constructor (table, meta, row, value, displayValue) {
+        super(table, meta, row, value, displayValue)
 
         this.init()
     }
