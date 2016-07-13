@@ -1,4 +1,4 @@
-import { BaseRenderer } from 'json-meta-table'
+import BaseRenderer from './BaseRenderer'
 import Fetch from 'fetch-class'
 
 const
