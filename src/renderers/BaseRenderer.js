@@ -29,6 +29,7 @@ export default class BaseRenderer extends EventAbstractClass {
         this.options             = Object.assign({}, OPTIONS, meta.rendererOptions)
         this.table               = table
         this.meta                = meta
+        this.row                 = row
         this.value               = null
         this.displayValue        = null
         this.initialValue        = value
