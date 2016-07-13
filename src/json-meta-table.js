@@ -11,6 +11,7 @@ import NumberRenderer from './renderers/NumberRenderer'
 import SelectRenderer from './renderers/SelectRenderer'
 import CheckboxRenderer from './renderers/CheckboxRenderer'
 import DateTimeRenderer from './renderers/DateTimeRenderer'
+import AutocompleteRenderer from './renderers/AutocompleteRenderer'
 
 import BaseAction from './actions/BaseAction'
 import ButtonAction from './actions/ButtonAction'
@@ -28,6 +29,7 @@ export {
     SelectRenderer,
     CheckboxRenderer,
     DateTimeRenderer,
+    AutocompleteRenderer,
 
     BaseAction,
     ButtonAction,
