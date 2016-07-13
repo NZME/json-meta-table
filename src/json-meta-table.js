@@ -75,11 +75,12 @@ const
     },
 
     RENDERERS = {
-        text:     TextRenderer,
-        number:   NumberRenderer,
-        select:   SelectRenderer,
-        checkbox: CheckboxRenderer,
-        datetime: DateTimeRenderer
+        text:         TextRenderer,
+        number:       NumberRenderer,
+        select:       SelectRenderer,
+        checkbox:     CheckboxRenderer,
+        datetime:     DateTimeRenderer,
+        autocomplete: AutocompleteRenderer
     },
 
     ACTIONS = {
